@@ -1,7 +1,16 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { BsAt,BsFillTelephoneFill } from 'react-icons/bs';
 import { FaLock, FaUser } from 'react-icons/fa';
 const Register = () => {
+    const [state, setState] = useState({
+        name:'',
+        email: '',
+        password: '',
+        phone:''
+    });
+    const handleOnChange = (e) => {
+        console.log(e.target.value);
+      };
     return (
         <>
          <div className="register">
@@ -17,7 +26,10 @@ const Register = () => {
                                 <label htmlFor="userName">User Name</label>
                                 <div className="icon-input">
                                     <div className="icon"><FaUser /></div>
-                                    <input type="text" name='name' id="userName" placeholder="User Name" className="form-control" />
+                                    <input
+                                    value={state.name}
+                                    onChange={handleOnChange}
+                                    type="text" name='name' id="userName" placeholder="User Name" className="form-control" />
 
                                 </div>
                             </div>
@@ -26,7 +38,12 @@ const Register = () => {
                                 <label htmlFor="email">Email</label>
                                 <div className="icon-input">
                                     <div className="icon"><BsAt /></div>
-                                    <input type="email" name='emai' id="email" placeholder="Emai" className="form-control" />
+                                    <input 
+                                     value={state.email}
+                                     onChange={handleOnChange}
+                                    type="email" 
+                                     id="email" placeholder="Email" 
+                                     className="form-control" />
 
                                 </div>
                             </div>
@@ -35,7 +52,10 @@ const Register = () => {
                                 <label htmlFor="password">Password</label>
                                 <div className="icon-input">
                                     <div className="icon"><FaLock /></div>
-                                    <input type="password" name='password' id="password" placeholder="Password" className="form-control" />
+                                    <input type="password"
+                                    value={state.password}
+                                    onChange={handleOnChange}
+                                    id="password" placeholder="Password" className="form-control" />
                                 </div>
                             </div>
                                {/* phone */}
@@ -43,7 +63,10 @@ const Register = () => {
                                 <label htmlFor="password">Phone</label>
                                 <div className="icon-input">
                                     <div className="icon"><BsFillTelephoneFill /></div>
-                                    <input type="text" name='name' id="password" placeholder="your phone number" className="form-control" />
+                                    <input
+                                     value={state.phone}
+                                     onChange={handleOnChange}
+                                    type="text" name='name' id="password" placeholder="your phone number" className="form-control" />
                                 </div>
                             </div>
                            
