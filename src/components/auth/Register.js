@@ -70,7 +70,7 @@ const Register = () => {
                                     icon: "success",
                                 })
                             ) : (
-                                ''
+                                swal("Failed!", "Please try again !!", "error", { dangerMode: true })
                             )}
 
                         <h3>Create Account</h3>
