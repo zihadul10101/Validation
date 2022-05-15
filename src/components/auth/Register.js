@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { BsAt, BsFillTelephoneFill } from 'react-icons/bs';
 import { FaLock, FaUser } from 'react-icons/fa';
 import { Link, useHistory } from 'react-router-dom';
+import swal from 'sweetalert';
 const Register = () => {
     const history = useHistory();
     const initialValues = { username: "", email: "", password: "", phone: '' };
@@ -10,6 +11,7 @@ const Register = () => {
     const [formErrors, setFormErrors] = useState({});
     const handleSubmit = (e) => {
         e.preventDefault();
+
         setFormErrors(validate(state));
         setIsSubmit(true);
         history.replace('/dashborad')
@@ -61,11 +63,15 @@ const Register = () => {
                         <img src="https://i.ibb.co/RQYHc7Q/reg.webp" />
                     </div>
                     <div className="auth">
-                        {Object.keys(formErrors).length === 0 && isSubmit ? (
-                            <div className="message-success">Account created successfully</div>
-                        ) : (
-                            ''
-                        )}
+                        {
+                            Object.keys(formErrors).length === 0 && isSubmit ? (
+                                swal({
+                                    title: "Account Create successfully!",
+                                    icon: "success",
+                                })
+                            ) : (
+                                ''
+                            )}
 
                         <h3>Create Account</h3>
                         <form onSubmit={handleSubmit}>
@@ -125,7 +131,7 @@ const Register = () => {
                                 <p className="error">{formErrors.phone}</p>
                             </div>
 
-                            <div  className="form-group">
+                            <div className="form-group">
                                 <button className="btn btn-block">Register</button>
                             </div>
 
