@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { BsAt, BsFillTelephoneFill } from 'react-icons/bs';
 import { FaLock, FaUser } from 'react-icons/fa';
+import { Link, useHistory } from 'react-router-dom';
 const Register = () => {
+    const history = useHistory();
     const initialValues = { username: "", email: "", password: "", phone: '' };
     const [state, setState] = useState(initialValues);
     const [isSubmit, setIsSubmit] = useState(false);
@@ -10,6 +12,7 @@ const Register = () => {
         e.preventDefault();
         setFormErrors(validate(state));
         setIsSubmit(true);
+        history.replace('/dashborad')
     };
     useEffect(() => {
         console.log(formErrors);
@@ -122,7 +125,7 @@ const Register = () => {
                                 <p className="error">{formErrors.phone}</p>
                             </div>
 
-                            <div className="form-group">
+                            <div  className="form-group">
                                 <button className="btn btn-block">Register</button>
                             </div>
 
