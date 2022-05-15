@@ -15,6 +15,15 @@
         grid-template-columns: repeat(2,1fr);
         align-items: center;
         .auth{
+            .message-success{
+                padding: 20px;
+                text-align: center;
+                font-size: 30px;
+                background-color: #3be05f;
+                color: #3b7de0;
+                border-radius:10px;
+                font-weight: bold;
+            }
             .login-page{
                 text-align: center;
                 a{
@@ -98,6 +107,10 @@
             }
         }
         form {
+            .error{
+                color: red;
+                font-weight: bold;
+            }
             .form-group{
                 .icon-input{
                     position: relative;
